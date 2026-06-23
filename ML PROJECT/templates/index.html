@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Fertilizer Recommendation</h2>
+
+        <form action="/" method="POST">
+            <div class="form-columns">
+                <div class="left-column">
+                    <label>Temperature</label>
+                    <input type="text" name="temp" placeholder="Enter temperature (°C)" required>
+
+                    <label>Moisture</label>
+                    <input type="text" name="moist" placeholder="Enter moisture (%)" required>
+
+                    <label>Rainfall</label>
+                    <input type="text" name="rain" placeholder="Enter rainfall (mm)" required>
+
+                    <label>pH</label>
+                    <input type="text" name="ph" placeholder="Enter pH value (0-14)" required>
+
+                    <label>Nitrogen</label>
+                    <input type="text" name="nitro" placeholder="Enter nitrogen level" required>
+                </div>
+
+                <div class="right-column">
+                    <label>Phosphorous</label>
+                    <input type="text" name="phos" placeholder="Enter phosphorous level" required>
+
+                    <label>Potassium</label>
+                    <input type="text" name="pot" placeholder="Enter potassium level" required>
+
+                    <label>Carbon</label>
+                    <input type="text" name="car" placeholder="Enter carbon level" required>
+
+                    <label>Soil Type</label>
+                    <input type="text" name="soi" placeholder="Enter soil type" required>
+
+                    <label>Crop Type</label>
+                    <input type="text" name="cro" placeholder="Enter crop type" required>
+                </div>
+            </div>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result-box">
+            <h3>Prediction: {{ prediction }}</h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
